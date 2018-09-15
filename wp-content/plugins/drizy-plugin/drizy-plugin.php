@@ -68,6 +68,14 @@ if (!class_exists('DrizyPlugin' )){
             return $links;
         }
 
+        public function add_admin_pages(){
+            add_menu_page( 'Drizy Plugin', 'Drizy', 'manage_options', 'drizy_plugin', array($this, 'admin_index'), 'dashicons-store', 100 );
+        }
+
+        public function admin_index(){
+            require_once plugin_dir_path(__FILE__) . 'templates/admin.php';
+
+        }
 
         function uninstall(){
             //delete custom post type
