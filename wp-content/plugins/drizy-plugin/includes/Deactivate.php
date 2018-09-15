@@ -6,10 +6,12 @@
  * Time: 8:52 AM
  *
  * @package DrizyPlugin
+ *
  */
+namespace Inc;
 
-class DrizyPluginActivate{
-    public static function activate(){
+class Deactivate{
+    public static function deactivate(){
         flush_rewrite_rules();
     }
 }

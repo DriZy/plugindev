@@ -1,0 +1,17 @@
+{
+    "name": "drizy/drizy-plugin",
+    "description": "Awsome plugin development tutorials",
+    "type": "project",
+    "license": "GPL 2 or later",
+    "authors": [
+        {
+            "name": "Drizy",
+            "email": "tabidrizy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4":{"Inc\\": "./includes"}
+    }
+}
