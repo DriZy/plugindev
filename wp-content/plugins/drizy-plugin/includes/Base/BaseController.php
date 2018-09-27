@@ -5,8 +5,8 @@
 namespace Inc\Base;
 
 class BaseController{
-    public $plugin_path;
     public $plugin_url;
+    public $plugin_path;
     public $plugin_basename;
     
     public function __construct(){

@@ -25,15 +25,13 @@
     }
 
     /**
-     * Loops through the classes, innitialize them and call the register method if it exist
+     * Loops through the classes, innitialize them and call the register() method if it exist
      */
     public static function register_services(){
          foreach (self::get_services() as $class) {
-             # code...
              $service = self::instantiate($class);
              if (method_exists($service,'register')) {
-                 # code...
-                 $service-> register();
+                $service-> register();
              }
          }
     }
