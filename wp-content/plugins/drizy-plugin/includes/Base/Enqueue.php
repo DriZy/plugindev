@@ -14,9 +14,9 @@ class Enqueue extends BaseController{
 
     function enqueue(){
         // enqueue all scripts
-        wp_enqueue_style('drizystyle',  $this->plugin_url .'/assets/mystyle.css');
+        wp_enqueue_style('drizystyle',  $this->plugin_url .'assets/mystyle.css');
 
-        wp_enqueue_script('drizyscript', $this->plugin_url .'/assets/myscript.js');
+        wp_enqueue_script('drizyscript', $this->plugin_url .'assets/myscript.js');
     }
  
 }

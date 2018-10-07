@@ -8,12 +8,14 @@ namespace Inc\Pages;
 use \Inc\Api\SettingsApi;
 use \Inc\Base\BaseController;
 use \Inc\Api\Callbacks\AdminCallbacks;
+use \Inc\Api\Callbacks\ManagerCallbacks;
 
 
  class Admin extends BaseController{
 
     public $settings;
     public $callbacks;
+    public $callbacks_mngr;
     public $pages = array();
     public $subpages = array();
 
@@ -22,6 +24,8 @@ use \Inc\Api\Callbacks\AdminCallbacks;
         $this->settings = new SettingsApi();
 
         $this->callbacks = new AdminCallbacks();
+
+        $this->callbacks_mngr = new ManagerCallbacks();
 
         $this->setPages();
 
@@ -82,14 +86,55 @@ use \Inc\Api\Callbacks\AdminCallbacks;
     public function setSettings(){
         $args  = array(
             array(
-                'option_group' => 'drizy_options_group',
-                'option_name' => 'field_example',
-                'callback' => array($this->callbacks, 'drizyOptionsGroup')
+                'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'cpt_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
             ),
             array(
-				'option_group' => 'drizy_options_group',
-				'option_name' => 'first_name'
-			)
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'taxonomy_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'media_widget_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'gallery_widget_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'post_and_pages_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'testimonial_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'template_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'registration_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'membership_manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
+            array(
+				'option_group' => 'drizy_plugin_settings',
+                'option_name' => 'chat_settings',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+            ),
         );
 
         $this->settings->setSettings($args);
@@ -100,7 +145,7 @@ use \Inc\Api\Callbacks\AdminCallbacks;
             array(
                 'id' => 'drizy_admin_index',
                 'title' => 'Settings',
-                'callback' => array($this->callbacks, 'drizyAdminSection'),
+                'callback' => array($this->callbacks_mngr, 'drizyAdminSectionManager'),
                 'page' => 'drizy_plugin'
             )
         );
@@ -111,27 +156,16 @@ use \Inc\Api\Callbacks\AdminCallbacks;
     public function setFields(){
         $args  = array(
             array(
-                'id' => 'field_example',
-                'title' => 'Text Field',
-                'callback' => array($this->callbacks, 'drizyFieldExample'),
+                'id' => 'cpt_manager',
+                'title' => 'CPT Manager',
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxField'),
                 'page' => 'drizy_plugin',
                 'section' => 'drizy_admin_index',
                 'args' => array(
-                    'label_for'=>'field_example',
-                    'class'=>'example-class'
+                    'label_for'=>'cpt_manager'                    
                 )
-            ),
-            array(
-				'id' => 'first_name',
-				'title' => 'First Name',
-				'callback' => array( $this->callbacks, 'drizyFirstName' ),
-				'page' => 'drizy_plugin',
-				'section' => 'drizy_admin_index',
-				'args' => array(
-					'label_for' => 'first_name',
-					'class' => 'example-class'
-				)
-			)
+            )
+            
         );
         $this->settings->setFields($args);
     }
