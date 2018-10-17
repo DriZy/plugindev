@@ -19,7 +19,6 @@ cpt_manager
 taxonomy_manager
 media_widget_manager
 gallery_widget_manager
-post_and_pages_manager
 testimonial_manager
 template_manager
 registration_manager

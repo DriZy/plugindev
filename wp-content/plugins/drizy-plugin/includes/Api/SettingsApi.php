@@ -103,7 +103,7 @@ class SettingsApi
 		}
 		//add settings field
 		foreach ( $this->fields as $field ) {
-			add_settings_field($field["id"], $field["title"], (isset($field["callback"]) ? $field["callback"] : '' ), $field["page"], $field["section"], (isset($section["args"]) ? $setting["args"] : '' ));
+			add_settings_field($field["id"], $field["title"], (isset($field["callback"]) ? $field["callback"] : '' ), $field["page"], $field["section"], ( isset($field["args"]) ? $field["args"] : '' ));
 		}
     }
 }

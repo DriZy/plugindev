@@ -88,52 +88,47 @@ use \Inc\Api\Callbacks\ManagerCallbacks;
             array(
                 'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'cpt_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'taxonomy_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'media_widget_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'gallery_widget_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
-            ),
-            array(
-				'option_group' => 'drizy_plugin_settings',
-                'option_name' => 'post_and_pages_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'testimonial_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'template_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'registration_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'membership_manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
             array(
 				'option_group' => 'drizy_plugin_settings',
                 'option_name' => 'chat_settings',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboSanitize')
+                'callback' => array($this->callbacks_mngr, 'drizyCheckboxSanitize')
             ),
         );
 
@@ -158,14 +153,102 @@ use \Inc\Api\Callbacks\ManagerCallbacks;
             array(
                 'id' => 'cpt_manager',
                 'title' => 'CPT Manager',
-                'callback' => array($this->callbacks_mngr, 'drizyCheckboxField'),
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
                 'page' => 'drizy_plugin',
                 'section' => 'drizy_admin_index',
                 'args' => array(
-                    'label_for'=>'cpt_manager'                    
+					'label_for' => 'cpt_manager',
+					'class' => 'ui-toggle'
+				)
+            ),
+            array(
+                'id' => 'taxonomy_manager',
+                'title' => 'Taxonomy Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+					'label_for' => 'taxonomy_manager',
+					'class' => 'ui-toggle'
+				)
+            ),
+            array(
+                'id' => 'media_widget_manager',
+                'title' => 'Media Widget Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+					'label_for' => 'media_widget_manager',
+					'class' => 'ui-toggle'
+				)
+            ),
+            array(
+                'id' => 'gallery_widget_manager',
+                'title' => 'Gallery Widget Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+					'label_for' => 'gallery_widget_manager',
+					'class' => 'ui-toggle'
+				)
+            ),
+            array(
+                'id' => 'testimonial_manager',
+                'title' => 'Testimonial Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+                    'label_for' => 'testimonial_manager',
+                    'class' => 'ui-toggle'
                 )
-            )
-            
+            ),
+            array(
+                'id' => 'template_manager',
+                'title' => 'Templates Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+                    'label_for' => 'template_manager',
+                    'class' => 'ui-toggle'
+                )
+            ),
+            array(
+                'id' => 'registration_manager',
+                'title' => 'Registration Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+                    'label_for' => 'registration_manager',
+                    'class' => 'ui-toggle'
+                )
+            ),
+            array(
+                'id' => 'membership_manager',
+                'title' => 'Membership Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+                    'label_for' => 'membership_manager',
+                    'class' => 'ui-toggle'
+                )
+            ),
+            array(
+                'id' => 'chat_settings',
+                'title' => 'Chat Manager',
+                'callback' => array( $this->callbacks_mngr, 'drizyCheckboxField'),
+                'page' => 'drizy_plugin',
+                'section' => 'drizy_admin_index',
+                'args' => array(
+                    'label_for' => 'chat_settings',
+                    'class' => 'ui-toggle'
+                )
+            )                 
         );
         $this->settings->setFields($args);
     }

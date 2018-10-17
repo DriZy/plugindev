@@ -24,9 +24,9 @@ class AdminCallbacks extends BaseController{
         return require_once( "$this->plugin_path/templates/widget.php" );
     }
 
-//    public function drizyCheckboSanitize($input){
-//        return $input;
-//    }
+    // public function drizyCheckboSanitize($input){
+    //     return $input;
+    // }
 
    
 }

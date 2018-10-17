@@ -28,7 +28,7 @@ var browserSync  = require( 'browser-sync' ).create();
 var reload       = browserSync.reload;
 
 // Project related variables
-var projectURL   = 'https://test.io';
+var projectURL   = 'http://unittest.io';
 
 var styleSRC     = './src/scss/mystyle.scss';
 var styleURL     = './assets/';
