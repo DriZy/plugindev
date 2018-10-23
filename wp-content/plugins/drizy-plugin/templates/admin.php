@@ -15,7 +15,7 @@
 			<form method="post" action="options.php">
 
 				<?php 
-					settings_fields( 'drizy_options_group' );
+					settings_fields( 'drizy_plugin_settings' );
 					do_settings_sections( 'drizy_plugin' );
 					submit_button();
 				?>

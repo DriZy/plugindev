@@ -11,6 +11,13 @@ namespace Inc\Base;
 
 class Activate{
     public static function activate(){
-            flush_rewrite_rules();
+        flush_rewrite_rules();
+        if (get_option('drizy_plugin')) {
+            return;
+        }  
+        
+        $default = array();
+
+        update_option( 'drizy_plugin', $default );
     }
 }

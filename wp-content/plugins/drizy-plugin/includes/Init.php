@@ -17,10 +17,12 @@
 
     public static function get_services(){
         return [
-            Pages\Admin::class,
+            Pages\Dashboard::class,
             Base\Enqueue::class,
             Base\EditLink::class,
             Base\SettingsLink::class,
+            Base\CPTController::class
+           
         ];
     }
 
@@ -52,7 +54,7 @@
 
 
  
-//  use Inc\Pages\Admin;
+//  use Inc\Pages\Dashboard;
  
  
 //  //Checking if plugin exist before registering it

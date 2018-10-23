@@ -11,8 +11,12 @@ class ManagerCallbacks extends BaseController{
     
     public function drizyCheckboxSanitize($input){
         // return filter_var($input, FILTER_SANITIZE_NUMBER_INT);
+        $output = array();
 
-        return (isset ($input ) ? true : false );
+        foreach ($this->managers as $key => $value) {
+            $output[$key] = isset ($input[$key]) ? true : false ;
+        }
+        return $output;
     }
 
     public function drizyAdminSectionManager(){
@@ -22,9 +26,12 @@ class ManagerCallbacks extends BaseController{
     public function drizyCheckboxField($args)	{
         // var_dump($args);
 		$names = $args['label_for'];
-		$classes = $args['class'];
-		$checkbox = get_option($names);
-		echo '<div class="'.$classes.'"><input type="checkbox" id="'.$names.'" name="'.$names.'" value="1" '.($checkbox ? 'checked' : '').'><label  for="'.$names.'"><div></div></label></div>';
+        $classes = $args['class'];
+        $option_name = $args['option_name'];
+        $checkbox = get_option($option_name);
+        
+        $checked = isset($checkbox[$names]) ? ($checkbox[$names] ? true : false) : false;
+		echo '<div class="'.$classes.'"><input type="checkbox" id="'.$names.'" name="'.$option_name.'['.$names.']"  value="1" '.( $checked ? 'checked' : '').'><label  for="'.$names.'"><div></div></label></div>';
 	}
     
 }
